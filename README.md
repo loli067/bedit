@@ -1,5 +1,6 @@
 ## Bedit
 A custom script for Android Boot image editor
+Remember that to type in .img in the choose img name option
 
 ## How to Install
 ```
