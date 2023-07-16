@@ -1,6 +1,5 @@
 ## Bedit
 A custom script for Android Boot image editor
-Remember that to type in .img in the choose img name option
 
 ## How to Install
 ```
@@ -10,3 +9,5 @@ sudo apt install git device-tree-compiler lz4 xz-utils zlib1g-dev openjdk-17-jdk
 ```
 bedit
 ```
+## Note 
+Remember that to type in .img in the choose img name option
