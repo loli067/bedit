@@ -3,7 +3,7 @@ current_dir=$(pwd)
 cd /snap/boot_editor_v13r3
 echo "Welcome to boot image editor" 
      echo "1. Unpack image"
-     echo "2. Unpack image assume the name is boot.img 
+     echo "2. Unpack image assume the name is boot.img"
      echo "3. Pack image"
      echo "4. Exit" 
 read option 
