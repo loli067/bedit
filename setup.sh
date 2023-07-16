@@ -13,8 +13,8 @@ exit 0
 fi
 fi
 if [ "$warning_bedit_installed" = "no" ]; then
-exit 0
 echo "Bye bye"
+exit 0
 fi
 sudo cp -r * "/snap/boot_editor_v13r3" 
 sudo cp -r "bedit" "/bin/bedit"        
@@ -23,5 +23,4 @@ echo "Error detected try agaian"
 exit 1
 fi
 exit 0
-fi
 fi
