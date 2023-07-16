@@ -11,5 +11,6 @@ bedit
 ```
 ## Note 
 Remember to type in .img in the choose img name option
-Also remember to have everything in the current directory like the boot.img or recovery.img etc
+Also to have everything in the current directory 
+like the boot.img or recovery.img etc
 and the unpacked_boot_image
