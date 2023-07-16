@@ -23,4 +23,3 @@ echo "Error detected try agaian"
 exit 1
 fi
 exit 0
-fi
