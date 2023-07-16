@@ -2,8 +2,8 @@ clear
 current_dir=$(pwd) 
 cd /snap/boot_editor_v13r3
 echo "Welcome to boot image editor" 
-     echo "1. unpack custom name"
-     echo "2. unpack default boot.img" 
+     echo "1. unpack image"
+     echo "2. unpack image assume the name is boot.img 
      echo "3. pack image"
      echo "4. exit" 
 read option 
