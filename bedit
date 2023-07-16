@@ -1,3 +1,4 @@
+clear
 current_dir=$(pwd) 
 cd /snap/boot_editor_v13r3
 echo "Welcome to boot image editor" 
