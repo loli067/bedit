@@ -1,4 +1,4 @@
-## Bedit
+## bedit
 A custom script for Android Boot image editor
 
 ## How to Install
@@ -11,3 +11,5 @@ bedit
 ```
 ## Note 
 Remember to type in .img in the choose img name option
+Also remember to have everything in the current directory like the boot.img or recovery.img etc
+and the unpacked_boot_image
