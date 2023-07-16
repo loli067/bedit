@@ -1,0 +1,47 @@
+current_dir=$(pwd) 
+cd /snap/boot_editor_v13r3
+echo "Welcome to boot image editor" 
+     echo "1. unpack custom name"
+     echo "2. unpack default boot.img" 
+     echo "3. pack image"
+     echo "4. exit" 
+read option 
+if [ "$option" = "4" ]; then 
+echo "Bye bye" 
+exit 0
+fi 
+if [ "$option" = "2" ]; then 
+sudo cp -r -f "$current_dir/boot.img /snap/boot_editor_v13r3/boot.img"
+cd /snap/boot_editor_v13r3 
+sudo ./beditor unpack 
+sudo cp -r "build" "$current_dir/unpacked_boot_image"
+if [ $? -ne 0 ]; then
+echo "Error Detected may not work try agian"
+exit 1
+fi
+exit 0
+fi
+if [ "$option" = "1" ]; then
+echo "Your boot image name:"
+read "boot_image_name"
+sudo cp -r -f "$current_dir/$boot_image_name /snap/boot_editor_v13r3/boot.img"
+cd /snap/boot_editor_v13r3
+sudo ./beditor unpack
+sudo cp -r "build" "$current_dir/unpacked_boot_image"
+if [ $? -ne 0 ]; then
+echo "Error Detected may not work try agian"
+exit 1
+fi
+exit 0
+fi
+if [ "$option" = "3" ]; then
+sudo rm -rf "/snap/boot_editor_v13r3/build"
+sudo cp -r -f "$current_dir/unpacked_boot_image" "/snap/boot_editor_v13r3/build"
+sudo ./beditor pack
+sudo mv "/snap/boot_editor_v13r3/boot.img.signed" "$current_dir/repacked image.img"
+if [ $? -ne 0 ]; then
+echo "Error Detected may not work try agian"
+exit 1
+fi
+exit 0
+fi

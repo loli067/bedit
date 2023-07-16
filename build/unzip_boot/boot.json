@@ -1,0 +1,44 @@
+{
+  "info" : {
+    "output" : "boot.img",
+    "json" : "boot.json",
+    "headerVersion" : 2,
+    "headerSize" : 1660,
+    "loadBase" : 0,
+    "tagsOffset" : 1271398400,
+    "board" : "SRPVD04A002",
+    "pageSize" : 2048,
+    "cmdline" : "bootopt=64S3,32N2,64N2 loop.max_part=7",
+    "osVersion" : "12.0.0",
+    "osPatchLevel" : "2023-04-00",
+    "hash" : "WuJpFxhscMv1bNJ67yuwK3YJDycAAAAAAAAAAAAAAAA=",
+    "verify" : "VB2.0 FAIL",
+    "imageSize" : 33554432
+  },
+  "kernel" : {
+    "file" : "build/unzip_boot/kernel",
+    "position" : 2048,
+    "size" : 11998589,
+    "loadOffset" : 1074266112
+  },
+  "ramdisk" : {
+    "file" : "build/unzip_boot/ramdisk.img.gz",
+    "position" : 12001280,
+    "size" : 13282134,
+    "loadOffset" : 1204289536,
+    "xzFlags" : null
+  },
+  "secondBootloader" : null,
+  "recoveryDtbo" : {
+    "file" : "build/unzip_boot/recoveryDtbo",
+    "position" : 25284608,
+    "size" : 92974,
+    "loadOffset" : 25284608
+  },
+  "dtb" : {
+    "file" : "build/unzip_boot/dtb",
+    "position" : 25378816,
+    "size" : 107131,
+    "loadOffset" : 1271398400
+  }
+}
