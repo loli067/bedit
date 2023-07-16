@@ -23,7 +23,7 @@ fi
 exit 0
 fi
 if [ "$option" = "1" ]; then
-echo "Your boot image name:"
+echo "Your boot image name include .img"
 read "boot_image_name"
 sudo cp -r -f "$current_dir/$boot_image_name /snap/boot_editor_v13r3/boot.img"
 cd /snap/boot_editor_v13r3
