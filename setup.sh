@@ -2,7 +2,8 @@ if [ -d "/snap/boot_editor_v13r3" ]; then
 echo "Warning you already have installed bedit continue?"
 read "warning_bedit_installed"
 if [ "$warning_bedit_installed" = "yes" ]; then
-sudo cp -r * "/snap/boot_editor_v13r3" 
+sudo rm -rf "/snap/boot_editor_v13r3"
+sudo cp -r -f * "/snap/boot_editor_v13r3" 
 sudo cp -r "bedit" "/bin/bedit"
 if [ $? -ne 0 ]; then
 echo "Error detected try agaian"
