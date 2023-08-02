@@ -11,7 +11,7 @@ bedit
 ``` 
 ## Note 
 ```
-Remember to type in .img in the choose img name option
+Remember to type in .img
 ```
 ```
 The unpacked boot image will be saved in a directory called unpacked_boot_image.
