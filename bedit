@@ -1,50 +1,75 @@
 clear
-current_dir=$(pwd) 
+current_dir=$(pwd)
 cd /snap/boot_editor_v13r3
-echo "Welcome to bedit" 
-     echo "1. Unpack image"
-     echo "2. Unpack image assume the name is boot.img"
-     echo "3. Pack image"
-     echo "4. Exit" 
-read option 
-if [ "$option" = "4" ]; then 
-echo "Bye bye" 
-exit 0
-fi 
-if [ "$option" = "2" ]; then 
-sudo rm "/snap/boot_editor_v13r3/boot.img"
-sudo cp -r -f "$current_dir/boot.img" "/snap/boot_editor_v13r3/boot.img"
-cd /snap/boot_editor_v13r3 
-sudo ./beditor unpack 
-sudo cp -r "build" "$current_dir/unpacked_boot_image"
-if [ $? -ne 0 ]; then
-echo "Error Detected may not work try agian"
-exit 1
+
+help() {
+    echo "bedit unpack:"
+    echo "Usage: bedit unpack <filename>"
+    echo ""
+    echo "Description:"
+    echo "The 'bedit unpack' is used to unpack the boot.img or recovery.img or a boot image"
+    echo ""
+    echo "Example:"
+    echo "bedit unpack recovery.img"
+    echo ""
+    echo ""
+    echo "bedit pack:"
+    echo "Usage: bedit pack"
+    echo ""
+    echo "Description:"
+    echo "The 'bedit pack' command is used to pack a boot image"
+    echo ""
+    echo "Example:"
+    echo "bedit pack my_directory/ example.pak"
+    echo ""
+    echo ""
+    exit 0
+}
+
+if [ "$1" = "help" ]; then
+    help
 fi
-exit 0
+
+if [ "$1" = "h" ]; then
+    help
 fi
-if [ "$option" = "1" ]; then
-echo "Your boot image name include .img"
-read "boot_image_name"
-sudo rm "/snap/boot_editor_v13r3/boot.img"
-sudo cp -r -f "$current_dir/$boot_image_name" "/snap/boot_editor_v13r3/boot.img"
+
+if [ "$1" = "-h" ]; then
+    help
+fi
+
+if [ "$1" = "--h" ]; then
+    help
+fi
+
+if [ "$1" = "unpack" ]; then
+    if [ -z "$2" ]; then
+echo "Usage: bedit unpack <bootimage.img>"
+exit 0
+    fi
+    sudo rm "/snap/boot_editor_v13r3/boot.img"
+sudo cp -r -f "$current_dir/$2" "/snap/boot_editor_v13r3/boot.img"
 cd /snap/boot_editor_v13r3
 sudo ./beditor unpack
 sudo cp -r "build" "$current_dir/unpacked_boot_image"
 if [ $? -ne 0 ]; then
-echo "Error Detected may not work try agian"
+echo "Error Detected may not work try again"
 exit 1
+    fi
+    exit 0
 fi
-exit 0
+
+if [ "$1" = "pack" ]; then
+    sudo rm -rf "/snap/boot_editor_v13r3/build"
+    sudo cp -r -f "$current_dir/unpacked_boot_image" "/snap/boot_editor_v13r3/build"
+    sudo ./beditor pack
+    sudo mv "/snap/boot_editor_v13r3/boot.img.signed" "$current_dir/repacked_image.img"
+    if [ $? -ne 0 ]; then
+        echo "Error Detected may not work try again"
+        exit 1
+    fi
+    exit 0
 fi
-if [ "$option" = "3" ]; then
-sudo rm -rf "/snap/boot_editor_v13r3/build"
-sudo cp -r -f "$current_dir/unpacked_boot_image" "/snap/boot_editor_v13r3/build"
-sudo ./beditor pack
-sudo mv "/snap/boot_editor_v13r3/boot.img.signed" "$current_dir/repacked image.img"
-if [ $? -ne 0 ]; then
-echo "Error Detected may not work try agian"
+
+echo "Invalid command. Use 'help' to see available options."
 exit 1
-fi
-exit 0
-fi
