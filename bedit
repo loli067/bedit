@@ -20,7 +20,7 @@ help() {
     echo "The 'bedit pack' command is used to pack a boot image"
     echo ""
     echo "Example:"
-    echo "bedit pack my_directory/ example.pak"
+    echo "bedit pack"
     echo ""
     echo ""
     exit 0
