@@ -1,50 +1,49 @@
 current_dir=$(pwd)
 cd /snap/boot_editor_v13r3
-
 help() {
-    echo "bedit unpack:"
-    echo "Usage: bedit unpack <filename>"
-    echo ""
-    echo "Description:"
-    echo "The 'bedit unpack' is used to unpack the boot.img or recovery.img or a boot image"
-    echo ""
-    echo "Example:"
-    echo "bedit unpack recovery.img"
-    echo ""
-    echo ""
-    echo "bedit pack:"
-    echo "Usage: bedit pack"
-    echo ""
-    echo "Description:"
-    echo "The 'bedit pack' command is used to pack a boot image"
-    echo ""
-    echo "Example:"
-    echo "bedit pack"
-    exit 0
+echo "bedit unpack:"
+echo "Usage: bedit unpack <filename>"
+echo ""
+echo "Description:"
+echo "The 'bedit unpack' is used to unpack the boot.img or recovery.img or a boot image"
+echo ""
+echo "Example:"
+echo "bedit unpack recovery.img"
+echo ""
+echo ""
+echo "bedit pack:"
+echo "Usage: bedit pack"
+echo ""
+echo "Description:"
+echo "The 'bedit pack' command is used to pack a boot image"
+echo ""
+echo "Example:"
+echo "bedit pack"
+exit 0
 }
-
+if [ -z "$1" ]; then
+echo "Invalid command. Use 'help' to see available options."
+exit 0
+fi
 if [ "$1" = "help" ]; then
-    help
+help
 fi
-
 if [ "$1" = "h" ]; then
-    help
+help
 fi
-
 if [ "$1" = "-h" ]; then
-    help
+help
 fi
-
 if [ "$1" = "--h" ]; then
-    help
+help
 fi
-clear
 if [ "$1" = "unpack" ]; then
-    if [ -z "$2" ]; then
+if [ -z "$2" ]; then
 echo "Usage: bedit unpack <bootimage.img>"
 exit 0
-    fi
-    sudo rm "/snap/boot_editor_v13r3/boot.img"
+fi
+clear
+sudo rm "/snap/boot_editor_v13r3/boot.img"
 sudo cp -r -f "$current_dir/$2" "/snap/boot_editor_v13r3/boot.img"
 cd /snap/boot_editor_v13r3
 sudo ./beditor unpack
@@ -52,21 +51,20 @@ sudo cp -r "build" "$current_dir/unpacked_boot_image"
 if [ $? -ne 0 ]; then
 echo "Error Detected may not work try again"
 exit 1
-    fi
-    exit 0
 fi
-
+exit 0
+fi
 if [ "$1" = "pack" ]; then
-    sudo rm -rf "/snap/boot_editor_v13r3/build"
-    sudo cp -r -f "$current_dir/unpacked_boot_image" "/snap/boot_editor_v13r3/build"
-    sudo ./beditor pack
-    sudo mv "/snap/boot_editor_v13r3/boot.img.signed" "$current_dir/repacked_image.img"
-    if [ $? -ne 0 ]; then
-        echo "Error Detected may not work try again"
-        exit 1
-    fi
-    exit 0
-fi
-
-echo "Invalid command. Use 'help' to see available options."
+clear
+sudo rm -rf "/snap/boot_editor_v13r3/build"
+sudo cp -r -f "$current_dir/unpacked_boot_image" "/snap/boot_editor_v13r3/build"
+sudo ./beditor pack
+sudo mv "/snap/boot_editor_v13r3/boot.img.signed" "$current_dir/repacked_image.img"
+if [ $? -ne 0 ]; then
+echo "Error Detected may not work try again"
 exit 1
+fi
+exit 0
+fi
+echo "Invalid command. Use 'help' to see available options."
+exit 0
