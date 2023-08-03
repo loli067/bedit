@@ -1,4 +1,3 @@
-clear
 current_dir=$(pwd)
 cd /snap/boot_editor_v13r3
 
@@ -21,8 +20,6 @@ help() {
     echo ""
     echo "Example:"
     echo "bedit pack"
-    echo ""
-    echo ""
     exit 0
 }
 
@@ -41,7 +38,7 @@ fi
 if [ "$1" = "--h" ]; then
     help
 fi
-
+clear
 if [ "$1" = "unpack" ]; then
     if [ -z "$2" ]; then
 echo "Usage: bedit unpack <bootimage.img>"
