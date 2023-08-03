@@ -43,7 +43,7 @@ echo "Usage: bedit unpack <bootimage.img>"
 exit 0
 fi
 clear
-sudo rm "/snap/boot_editor_v13r3/boot.img"
+sudo rm -rf "/snap/boot_editor_v13r3/boot.img"
 sudo cp -r -f "$current_dir/$2" "/snap/boot_editor_v13r3/boot.img"
 cd /snap/boot_editor_v13r3
 sudo ./beditor unpack
