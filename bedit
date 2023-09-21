@@ -1,28 +1,17 @@
 current_dir=$(pwd)
 cd /snap/bedit
 help() {
-echo "bedit unpack:"
 echo "Usage: bedit unpack <filename>"
 echo ""
-echo "Description:"
-echo "The 'bedit unpack' is used to unpack the boot.img or recovery.img or a boot image"
 echo ""
-echo "Example:"
-echo "bedit unpack recovery.img"
-echo ""
-echo ""
-echo "bedit pack:"
 echo "Usage: bedit pack"
 echo ""
-echo "Description:"
-echo "The 'bedit pack' command is used to pack a boot image"
 echo ""
-echo "Example:"
-echo "bedit pack"
+echo ""
 exit 0
 }
 if [ -z "$1" ]; then
-echo "Invalid command. Use 'help' to see available options."
+echo "Invalid command. Use 'bedit -h' to see available options."
 exit 0
 fi
 if [ "$1" = "help" ]; then
