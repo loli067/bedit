@@ -1,2 +1,2 @@
-cd "/snap/boot_editor_v13r3"
-/snap/boot_editor_v13r3/beditors "$@"
+cd "/snap/bedit"
+/snap/bedit/beditors "$@"
