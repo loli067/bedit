@@ -18,6 +18,6 @@ The unpacked boot image will be saved in a directory called unpacked_boot_image.
 ```
 ```
 DO NOT run bedit with sudo e.g
-sudo bedit unpack
+sudo bedit unpack <filename>
 sudo bedit pack
 ```
