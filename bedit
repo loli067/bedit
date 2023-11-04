@@ -1,5 +1,5 @@
 current_dir=$(pwd)
-cd /snap/bedit
+cd /lib/bedit
 help() {
 echo "Usage: bedit unpack <filename>"
 echo ""
@@ -32,9 +32,9 @@ echo "Usage: bedit unpack <bootimage.img>"
 exit 0
 fi
 clear
-sudo rm -rf "/snap/bedit/boot.img"
-sudo cp -r -f "$current_dir/$2" "/snap/bedit/boot.img"
-cd /snap/bedit
+sudo rm -rf "/lib/bedit/boot.img"
+sudo cp -r -f "$current_dir/$2" "/lib/bedit/boot.img"
+cd /lib/bedit
 sudo ./beditor unpack
 sudo cp -r "build" "$current_dir/unpacked_boot_image"
 if [ $? -ne 0 ]; then
@@ -45,10 +45,10 @@ exit 0
 fi
 if [ "$1" = "pack" ]; then
 clear
-sudo rm -rf "/snap/bedit/build"
-sudo cp -r -f "$current_dir/unpacked_boot_image" "/snap/bedit/build"
+sudo rm -rf "/lib/bedit/build"
+sudo cp -r -f "$current_dir/unpacked_boot_image" "/lib/bedit/build"
 sudo ./beditor pack
-sudo mv "/snap/bedit/boot.img.signed" "$current_dir/repacked_image.img"
+sudo mv "/lib/bedit/boot.img.signed" "$current_dir/repacked_image.img"
 if [ $? -ne 0 ]; then
 echo "Error Detected may not work try again"
 exit 1
