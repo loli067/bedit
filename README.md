@@ -21,6 +21,6 @@ sudo bedit pack
 ## Credits
 I only made a script for the android_boot_image_editor to make it simplere to use All credits for the original code goto
 ##
-Cfig , CallMESuper , Surendrajat , hamjin , sapphire-hk , rover12421 , scarlet-glass , codacy-badger , 918712886438 , 10S-trace
+Cfig , CallMESuper , Surendrajat , hamjin , sapphire-hk , rover12421 , scarlet-glass , codacy-badger , 918712886438 , 10S-trace , jonas-app
 ##
 Original code: https://github.com/cfig/Android_boot_image_editor
