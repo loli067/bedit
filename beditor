@@ -1,2 +1,2 @@
-cd "/snap/bedit"
-/snap/bedit/beditors "$@"
+cd "/lib/bedit"
+/lib/bedit/beditors "$@"
