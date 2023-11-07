@@ -1,6 +1,3 @@
-## bedit
-A custom script for Android Boot image editor
-
 ## Installation
 ```
 sudo apt install git device-tree-compiler lz4 xz-utils zlib1g-dev openjdk-17-jdk gcc g++ python3 python-is-python3 p7zip-full android-sdk-libsparse-utils && cd $home && git clone https://github.com/loli067/bedit && cd bedit && sh setup.sh
@@ -21,3 +18,7 @@ DO NOT run bedit with sudo e.g
 sudo bedit unpack <filename>
 sudo bedit pack
 ```
+## Credits
+I only made a script for the android_boot_image_editor to make it simplere to use All credits goto
+Cfig , CallMESuper , Surendrajat , hamjin , sapphire-hk , rover12421 , scarlet-glass , codacy-badger , 918712886438 , 10S-trace
+Original code: https://github.com/cfig/Android_boot_image_editor
