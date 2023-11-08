@@ -1,3 +1,7 @@
+if [ "$EUID" -eq 0 ]; then
+echo "Please do not run bedit with sudo permissions"
+exit 1
+fi
 current_dir=$(pwd)
 cd /lib/bedit
 help() {
